@@ -1,12 +1,8 @@
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+/* DO CSS AUDIT – GET RID OF DEAD STYLES */
+/* DO GLOBAL SEARCH FOR CLASSES AND IDS AND MAKE SURE THEY ARE BEING USED*/
+/* max 100 lines per file (rough guideline) */
 
-.row {
-  /*border: 3px solid black; /* delete after testing */
-}
-
+/* Break css up into per-component CSS files */
 
 #title{
   height: 100px;
@@ -65,11 +61,6 @@
 .filter {
   margin-right: 5px;
 }
-
-/*#buttons .row button .btn {
-  padding: 10px;
-  margin: 10px;
-}*/
 
 .left-column, .right-column {
   height: 300px;

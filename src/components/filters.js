@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Test from './test';
 
+// get rid of dead code
+
 class Filters extends Component{
   render(){
     return (

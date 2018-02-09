@@ -10,9 +10,9 @@ class Home extends Component{
     this.state={
       matchesShown: false
     }
-      this.displaymatches=this.displaymatches.bind(this);
-      this.displayEveryone=this.displayEveryone.bind(this);
-      this.deleteUser=this.deleteUser.bind(this);
+    this.displaymatches=this.displaymatches.bind(this);
+    this.displayEveryone=this.displayEveryone.bind(this);
+    this.deleteUser=this.deleteUser.bind(this);
   }
   displaymatches(){
     this.setState({
