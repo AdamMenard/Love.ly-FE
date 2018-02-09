@@ -13,6 +13,13 @@ class Options extends Component{
   }
 
   render(){
+    // refactor so you iterate through array 
+    // [{value: 5, text: 'Strongly Agree'}, {value: 4, text: 'Agree'}, {...}]
+
+    // EXAMPLE: array.map(eachObj => {
+    //   return <li><input value={eachObj.value} onChange={ this.addscore } <label>{ eachObj.text}</label>>
+    // })
+    
     return (
       <ul className='likert'>
         <li>

@@ -23,8 +23,8 @@ class Priority extends Component {
   }
   savePriority(){
 
-    if(this.state.humour==='' || this.state.intelligence === '' || this.state.empathy === ''
-    || this.state.materialism === '' || this.state.physical_needs === ''){
+    if(!this.state.humour || !this.state.intelligence || !this.state.empathy
+    || !this.state.materialism || !this.state.physical_needs){
 
       alert("Please prioritise all categories.")
     }
@@ -35,6 +35,7 @@ class Priority extends Component {
   }
   render() {
     var alreadySelected = Object.values(this.state) // remove 0s
+    // REFACTOR so you do not repeat dropdown 5 times
     return(
       <div className="form-outline">
         <div className="row">
@@ -70,9 +71,6 @@ class Priority extends Component {
               <button className="btn btn-primary" onClick={this.savePriority}> Save </button>
           </div>
        </div>
-       {/* <div className="row form-outline center_form">
-          <Link to={`/test`}> <h3> Take Our Compatibility Test </h3> </Link>
-       </div> */}
      </div>
     );
   }

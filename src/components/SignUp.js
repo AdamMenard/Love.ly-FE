@@ -17,7 +17,6 @@ class SignUp extends Component {
 
   onSubmit(e){
     e.preventDefault();
-    // var _this = this;
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`, {
       method: 'POST',
       headers: {
@@ -31,15 +30,16 @@ class SignUp extends Component {
         image_url: this.state.image_url,
         gender: this.state.gender,
         description: this.state.description
-        })
-      }).then((res) => {
-        return res.json()
-      }).then((json) => {
-        this.props.history.push('/profiles');
       })
-    }
+    }).then((res) => {
+      return res.json()
+    }).then((json) => {
+      this.props.history.push('/profiles');
+    })
+  }
 
   render() {
+    // refactor to be DRYer
     return(
       <form >
         <br />

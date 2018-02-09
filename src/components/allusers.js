@@ -20,6 +20,7 @@ class AllUsers extends Component{
 render(){
   return ( <div>
     {this.state.allUsers.map(eachUser => {
+      // indentation
           return (
                   <div id="user-box" key={eachUser._id} className="card" >
                       <img className="card-img-top user-pic" src={eachUser.image_url} alt="ProfilePic" />

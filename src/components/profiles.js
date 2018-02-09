@@ -8,11 +8,13 @@ class Profiles extends Component{
      allUsers: [],
      allMatches: []
    }
+   this.getMatches = this.getMatches.bind(this);
  }
- componentDidMount() {
-   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`).then((res) => {
+ getMatches() {
+  fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`).then((res) => {
      return res.json();
    }).then((json) => {
+      // get rid of unnecessary comments
      // Set state to this json response you got back
 
      // find current user's ID from URL and his/her user object
@@ -39,9 +41,16 @@ class Profiles extends Component{
      })
    });
  }
+ componentDidMount() {
+   this.getMatches();
+ }
+
+ componentWillReceiveProps(nextProps) {
+  // if showMatches prop changed to true (from false), then call this.getMatches() again
+ }
  render(){
    let users = this.props.showMatches ? this.state.allMatches : this.state.allUsers;
-   console.log("current user's matches",this.state.allMatches);
+
    if(this.props.showMatches && this.state.allMatches.length===0){
      return (
        <div className="center_form">
@@ -50,6 +59,7 @@ class Profiles extends Component{
      )
    }
    else{
+    // indentation
      return ( <div>
        {users.map(eachUser => {
              return (

@@ -1,10 +1,14 @@
+// INDENTATION
+
 import React, {Component} from 'react';
 import Options from './options';
 import Priority from './priority';
+// import '../componentsStyles/test.css'; OR import './test.css' (depending on where you put the CSS file)
 
 class Test extends Component{
   constructor(){
     super();
+    // indentation
     this.state={
       values : {
                 humour:[0,0,0,0,0],
@@ -25,7 +29,12 @@ class Test extends Component{
     this.saveUserPriority=this.saveUserPriority.bind(this);
   }
   logAnswer(categ,idx,value){
-    this.state.values[categ][idx] = value
+    // get rid of comments
+    // this.state.values[categ][idx] = value;
+    // GET RID OF ALL CONSOLE WARNINGS / ERRORS / COMMENTS BEFORE MAKING A COMMIT
+    let clonedValues = Object.assign({}, this.state.values);
+    clonedValues[categ][idx] = value;
+    this.setState({values: clonedValues});
   }
   onTestSubmit(e){
     e.preventDefault();
@@ -34,6 +43,7 @@ class Test extends Component{
     if (this.state.values.hasOwnProperty(key)) {
       console.log("pri :" +this.state[key]);
         data.push({name  : key,
+                  // FIX THIS WARNING: GOOGLE THIS MESSAGE ("Missing radix parameter  radix")
                    score :  parseInt(this.state.values[key][0])+
                             parseInt(this.state.values[key][1])+
                             parseInt(this.state.values[key][2])+
@@ -43,8 +53,6 @@ class Test extends Component{
                   });
       }
     }
-    console.log(data);
-    console.log(this.props);
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${this.props.user_id}`, {
       method: 'PUT',
       headers: {
@@ -55,10 +63,10 @@ class Test extends Component{
         values: data
         })
       }).then((res) => {
-         return res.json()
-        }).then((json) => {
-           console.log(json);
-        })
+       return res.json()
+      }).then((json) => {
+         console.log(json);
+      })
 
   };
 
